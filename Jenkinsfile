@@ -8,8 +8,8 @@ pipeline {
 
     options {
         buildDiscarder logRotator( 
-                    daysToKeepStr: '16', 
-                    numToKeepStr: '10'
+                    daysToKeepStr: '14', 
+                    numToKeepStr: '20'
             )
     }
 
@@ -33,11 +33,33 @@ pipeline {
                 ])
             }
         }
+        
+        stage('Build Code') {
+            steps {
+                sh """
+                echo "Build Code"
+                """
+            }
+        }
 
-        stage(' Unit Testing') {
+        stage('Unit Testing') {
             steps {
                 sh """
                 echo "Running Unit Tests"
+                """
+            }
+        }
+        
+        stage('Deploy Test Env') {
+            steps {
+                sh """
+                echo "Deploy Test Env"
+                """
+            }
+            
+            steps {
+                sh """
+                echo "Deploy Test Env Two"
                 """
             }
         }
