@@ -55,11 +55,9 @@ pipeline {
                 sh """
                 echo "Deploy Test Env"
                 """
-            }
-            
-            steps {
+                
                 sh """
-                echo "Deploy Test Env Two"
+                echo "ABC END"
                 """
             }
         }
